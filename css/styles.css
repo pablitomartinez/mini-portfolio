@@ -1,0 +1,289 @@
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+  --gris: #757575;
+  --grisClaro: #dfe9f3;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /*HACK BOX-MODEL*/
+  scroll-snap-type: y mandatory;
+}
+
+/* SCROLL SNAP  */
+.contenedor,
+.navbar,
+.contenedor-form{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px; /*1 rem = 10px*/
+  /* DEGRADADO  */
+  /* 1 hacia donde va el degradado */
+  /* 2 el color */
+  /* 3 hacia que color va  */
+  background-image: linear-gradient(to top, va(--grisClaro) 0%, var(--blanco));
+  font-family: "Krub", sans-serif;
+}
+/* TIPOGRAFIA */
+h1 {
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+/* SOMBRA  */
+.sombra {
+  -webkit-box-shadow: 0px 5px 9px 0px rgba(158, 134, 158, 1);
+  -moz-box-shadow: 0px 5px 9px 0px rgba(158, 134, 158, 1);
+  box-shadow: 0px 5px 9px 0px rgba(158, 134, 158, 1);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+/* BOTTON  */
+.boton {
+  background-color: #0097a7;
+  color: #ffffff;
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 80%;
+  text-align: center;
+  border: none;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .boton {
+    width: auto;
+  }
+}
+
+span {
+  font-size: 2rem;
+}
+
+.nav-bg {
+  background: var(--secundario);
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+/* UTILIDADES  */
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+/* NAVEGACION PRINCIPAL */
+.navbar a {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.navbar a:hover {
+  background-color: var(--primario);
+  color: #212121;
+}
+/* HERO  */
+.hero {
+  background-image: url(../img//hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  /* padding: 20px; */
+  /*posicion del padre, para que se posicione el dijo*/
+  position: relative;
+}
+
+.contenido-hero {
+  /*una vez posicionado el padre, puedo posicionar el hijo*/
+  position: absolute;
+  /* background-color: rgba(0,0,0,.7); */
+  background-color: rgb(0 0 0 / 70%); /*nueva sintaxis*/
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero div {
+  color: var(--blanco);
+}
+
+.ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* SERVICIOS  */
+@media (min-width: 768px) {
+    .servicios{
+        display: grid;
+        /* grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px; */
+    
+    
+        /* ESTO ES LO MISMO - 3 FORMAS */
+        /* 1 parte las rows  */
+        /* 2 parte las columns  */
+        /* grid: 200px 800px / 300px 300px; */
+    
+    
+        /* grid-template-columns: 33.3% 33.3% 33.3%; */
+    
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: 400;
+}
+.servicio p {
+    line-height: 2;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: #ffc107;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly ;
+    align-items: center;
+}
+
+    /* CONTACTO  */
+    .form{
+        background-color: #757575;
+        width: min( 60rem , 100%); /*utiliza valor mas peque;o*/
+        
+        margin: 0 auto; /*siempre que tengas un elemento cuyo padre no tenga display flex*/
+        padding: 2rem;
+        border-radius: 1rem;
+    }
+    .form legend{
+        color: #ffc107;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+    .form fieldset{
+        border: none;
+    }
+
+    @media (min-width: 768px) {
+        
+      .form .contenedor-inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+      }
+      .input:nth-child(3),
+      .input:nth-child(4){
+        grid-column: 1 / 3;
+      }
+      
+    }
+
+    .input{
+        margin-bottom: 1rem;
+    }
+
+    .input label{
+        color: #dfe9f3;
+        font-weight: bold;
+        margin-bottom: .5rem;
+        display: block;
+    }
+
+    .input .input-text{
+        width: 100%;
+        border: none;
+        padding: 1.5rem;
+        border-radius: .5rem;
+    }
+
+    .input textarea{
+      height: 20rem;
+    }
+
+    .footer{
+      text-align: center;
+    }
